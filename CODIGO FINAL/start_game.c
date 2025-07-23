@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   start_game.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: thevaris <thevaris@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/22 14:24:09 by thevaris          #+#    #+#             */
+/*   Updated: 2025/07/22 14:42:09 by thevaris         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 void	print_moviments(int keysim, t_game *data)
@@ -8,7 +20,7 @@ void	print_moviments(int keysim, t_game *data)
 		|| keysim == KEY_D || keysim == KEY_RIGHT)
 	{
 		data->moves += 1;
-		ft_printf("moves ---------------- %d\n", data->moves);
+		ft_printf("moves ---- %d\n", data->moves);
 	}
 }
 

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: thevaris <thevaris@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/22 14:24:42 by thevaris          #+#    #+#             */
+/*   Updated: 2025/07/22 14:24:43 by thevaris         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
@@ -22,8 +34,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
-
-
 
 typedef struct s_map
 {
@@ -62,10 +72,10 @@ void		read_map(t_game *data, char *path);
 int			check_map(t_game *data);
 int			check_path(t_game *data);
 void		flood_fill(int x, int y, t_game *data);
-int			is_rectangle(char **map);
-int			is_surrounded_wall(char **map);
+int			is_rectangle(char *map[]);
+int			is_surrounded_wall(char *map[]);
 int			check_itens(t_game *data);
-int			is_valid(char **map);
+int			is_valid(char *map[]);
 void		gather_elements(t_game *data);
 void		free_map(char **map);
 void		free_images(t_game *data);

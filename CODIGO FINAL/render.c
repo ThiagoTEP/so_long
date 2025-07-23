@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   read_map.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: thevaris <thevaris@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/22 14:24:56 by thevaris          #+#    #+#             */
+/*   Updated: 2025/07/22 14:24:57 by thevaris         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 static char	*read_lines(int fd)
@@ -8,7 +20,7 @@ static char	*read_lines(int fd)
 
 	map = ft_strdup("");
 	if (!map)
-		return(NULL);
+		return (NULL);
 	while (1)
 	{
 		line = get_next_line(fd);
@@ -44,8 +56,9 @@ static void	put_tile(t_game *d, void *img, int x, int y)
 
 void	put_image(t_game *data, int x, int y)
 {
-	char	c = data->t_map.map[y][x];
+	char	c;
 
+	c = data->t_map.map[y][x];
 	if (c == '0')
 		put_tile(data, data->t_map.img_backg, x, y);
 	else if (c == 'P')

@@ -6,7 +6,7 @@
 /*   By: thevaris <thevaris@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 15:30:04 by thevaris          #+#    #+#             */
-/*   Updated: 2025/04/13 18:48:59 by thevaris         ###   ########.fr       */
+/*   Updated: 2025/07/22 14:27:49 by thevaris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	countwords(const char	*str, char c)
 		while (str[i] == c)
 			i++;
 		if (str[i] != '\0')
-		countword++;
+			countword++;
 		while (str[i] && str[i] != c)
 			i++;
 	}
@@ -45,7 +45,7 @@ char	**splitter(char const *s, char c, char **result)
 		while (s[i] == c)
 			i++;
 		if (!s[i])
-			break;
+			break ;
 		start = i;
 		while (s[i] && s[i] != c)
 			i++;

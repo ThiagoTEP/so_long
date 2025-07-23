@@ -1,15 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   handle_key.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: thevaris <thevaris@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/22 14:25:12 by thevaris          #+#    #+#             */
+/*   Updated: 2025/07/22 14:25:13 by thevaris         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 void	update_player_img(char c, t_game *data)
 {
-	static char last_dir = 0;
+	static char	last_dir = 0;
 
 	if (c == last_dir)
-		return;
+		return ;
 	last_dir = c;
 	mlx_destroy_image(data->mlx, data->player_pose);
 	update_door_img(data);
-
 	if (c == 'w')
 		data->player_pose = mlx_xpm_file_to_image(data->mlx,
 				"./textures/player_up.xpm",
@@ -31,7 +42,8 @@ void	update_player_img(char c, t_game *data)
 int	handle_w(t_game *data)
 {
 	update_player_img('w', data);
-	if (data->t_map.map[data->player_y][data->player_x] == 'E' && data->colect == 0)
+	if (data->t_map.map[data->player_y][data->player_x] == 'E' &&
+	data->colect == 0)
 		won_game(data);
 	else if (data->t_map.map[data->player_y][data->player_x] == '1')
 		data->player_y += 1;
@@ -46,7 +58,6 @@ int	handle_w(t_game *data)
 			data->t_map.map[data->player_y + 1][data->player_x] = 'E';
 		else
 			data->t_map.map[data->player_y + 1][data->player_x] = '0';
-
 		render_map(data);
 	}
 	return (0);
@@ -55,7 +66,8 @@ int	handle_w(t_game *data)
 int	handle_a(t_game *data)
 {
 	update_player_img('a', data);
-	if (data->t_map.map[data->player_y][data->player_x] == 'E' && data->colect == 0)
+	if (data->t_map.map[data->player_y][data->player_x] == 'E' &&
+	data->colect == 0)
 		won_game(data);
 	else if (data->t_map.map[data->player_y][data->player_x] == '1')
 		data->player_x += 1;
@@ -66,12 +78,10 @@ int	handle_a(t_game *data)
 			data->colect -= 1;
 		if (data->t_map.map[data->player_y][data->player_x] != 'E')
 			data->t_map.map[data->player_y][data->player_x] = 'P';
-
 		if (data->t_map.map[data->player_y][data->player_x + 1] == 'E')
 			data->t_map.map[data->player_y][data->player_x + 1] = 'E';
 		else
 			data->t_map.map[data->player_y][data->player_x + 1] = '0';
-
 		render_map(data);
 	}
 	return (0);
@@ -80,7 +90,8 @@ int	handle_a(t_game *data)
 int	handle_s(t_game *data)
 {
 	update_player_img('s', data);
-	if (data->t_map.map[data->player_y][data->player_x] == 'E' && data->colect == 0)
+	if (data->t_map.map[data->player_y][data->player_x] == 'E' &&
+	data->colect == 0)
 		won_game(data);
 	else if (data->t_map.map[data->player_y][data->player_x] == '1')
 		data->player_y -= 1;
@@ -91,12 +102,10 @@ int	handle_s(t_game *data)
 			data->colect -= 1;
 		if (data->t_map.map[data->player_y][data->player_x] != 'E')
 			data->t_map.map[data->player_y][data->player_x] = 'P';
-
 		if (data->t_map.map[data->player_y - 1][data->player_x] == 'E')
 			data->t_map.map[data->player_y - 1][data->player_x] = 'E';
 		else
 			data->t_map.map[data->player_y - 1][data->player_x] = '0';
-
 		render_map(data);
 	}
 	return (0);
@@ -105,7 +114,8 @@ int	handle_s(t_game *data)
 int	handle_d(t_game *data)
 {
 	update_player_img('d', data);
-	if (data->t_map.map[data->player_y][data->player_x] == 'E' && data->colect == 0)
+	if (data->t_map.map[data->player_y][data->player_x] == 'E' &&
+	data->colect == 0)
 		won_game(data);
 	else if (data->t_map.map[data->player_y][data->player_x] == '1')
 		data->player_x -= 1;
@@ -116,12 +126,10 @@ int	handle_d(t_game *data)
 			data->colect -= 1;
 		if (data->t_map.map[data->player_y][data->player_x] != 'E')
 			data->t_map.map[data->player_y][data->player_x] = 'P';
-
 		if (data->t_map.map[data->player_y][data->player_x - 1] == 'E')
 			data->t_map.map[data->player_y][data->player_x - 1] = 'E';
 		else
 			data->t_map.map[data->player_y][data->player_x - 1] = '0';
-
 		render_map(data);
 	}
 	return (0);

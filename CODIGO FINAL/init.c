@@ -1,17 +1,34 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   gather_elements.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: thevaris <thevaris@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/22 14:25:16 by thevaris          #+#    #+#             */
+/*   Updated: 2025/07/22 14:44:17 by thevaris         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 static void	load_textures(t_game *data)
 {
 	data->t_map.img_backg = mlx_xpm_file_to_image(data->mlx,
-			"./textures/background.xpm", &data->t_map.img_x, &data->t_map.img_y);
+			"./textures/background.xpm",
+			&data->t_map.img_x, &data->t_map.img_y);
 	data->t_map.img_wall = mlx_xpm_file_to_image(data->mlx,
-			"./textures/wall.xpm", &data->t_map.img_x, &data->t_map.img_y);
+			"./textures/wall.xpm",
+			&data->t_map.img_x, &data->t_map.img_y);
 	data->t_map.img_colect = mlx_xpm_file_to_image(data->mlx,
-			"./textures/colectable.xpm", &data->t_map.img_x, &data->t_map.img_y);
+			"./textures/colectable.xpm",
+			&data->t_map.img_x, &data->t_map.img_y);
 	data->t_map.img_exit = mlx_xpm_file_to_image(data->mlx,
-			"./textures/exit.xpm", &data->t_map.img_x, &data->t_map.img_y);
+			"./textures/exit.xpm", &data->t_map.img_x,
+			&data->t_map.img_y);
 	data->player_pose = mlx_xpm_file_to_image(data->mlx,
-			"./textures/player_right.xpm", &data->t_map.img_x, &data->t_map.img_y);
+			"./textures/player_right.xpm", &data->t_map.img_x,
+			&data->t_map.img_y);
 }
 
 void	gather_elements(t_game *data)
@@ -19,7 +36,7 @@ void	gather_elements(t_game *data)
 	data->mlx = mlx_init();
 	if (!data->mlx)
 	{
-		ft_printf("Erro ao iniciar mlx\n");
+		ft_printf("error when starting mlx\n");
 		exit(1);
 	}
 	data->win = mlx_new_window(data->mlx, data->t_map.map_width * PIXS,
@@ -40,7 +57,7 @@ void	update_door_img(t_game *data)
 	if (data->t_map.map[data->player_y][data->player_x] == 'E')
 		set_exit_image(data, "./textures/closed_exit.xpm");
 	else if ((data->t_map.map[data->player_y][data->player_x] == 'C'
-			&& data->colect == 1) || data->colect == 0)
+		&& data->colect == 1) || data->colect == 0)
 		set_exit_image(data, "./textures/o_exit.xpm");
 	else
 		set_exit_image(data, "./textures/exit.xpm");
