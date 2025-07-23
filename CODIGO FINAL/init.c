@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gather_elements.c                                  :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thevaris <thevaris@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 14:25:16 by thevaris          #+#    #+#             */
-/*   Updated: 2025/07/22 14:44:17 by thevaris         ###   ########.fr       */
+/*   Updated: 2025/07/23 11:08:00 by thevaris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ static void	load_textures(t_game *data)
 	data->t_map.img_colect = mlx_xpm_file_to_image(data->mlx,
 			"./textures/colectable.xpm",
 			&data->t_map.img_x, &data->t_map.img_y);
-	data->t_map.img_exit = mlx_xpm_file_to_image(data->mlx,
-			"./textures/exit.xpm", &data->t_map.img_x,
-			&data->t_map.img_y);
 	data->player_pose = mlx_xpm_file_to_image(data->mlx,
 			"./textures/player_right.xpm", &data->t_map.img_x,
+			&data->t_map.img_y);
+	data->t_map.img_exit = mlx_xpm_file_to_image(data->mlx,
+			"./textures/exit.xpm", &data->t_map.img_x,
 			&data->t_map.img_y);
 }
 

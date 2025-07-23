@@ -6,7 +6,7 @@
 /*   By: thevaris <thevaris@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 14:25:20 by thevaris          #+#    #+#             */
-/*   Updated: 2025/07/22 14:27:03 by thevaris         ###   ########.fr       */
+/*   Updated: 2025/07/23 09:56:07 by thevaris         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ void	free_images(t_game *data)
 		mlx_destroy_image(data->mlx, data->t_map.img_backg);
 	if (data->t_map.img_colect)
 		mlx_destroy_image(data->mlx, data->t_map.img_colect);
+	if (data->player)
+		mlx_destroy_image(data->mlx, data->player_pose);
 	if (data->t_map.img_exit)
 		mlx_destroy_image(data->mlx, data->t_map.img_exit);
 	if (data->t_map.img_wall)
 		mlx_destroy_image(data->mlx, data->t_map.img_wall);
-	if (data->player)
-		mlx_destroy_image(data->mlx, data->player_pose);
 }
 
 int	exit_game(t_game *data)
